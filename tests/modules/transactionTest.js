@@ -30,8 +30,8 @@ describe('Transaction Service', () => {
       status: 'pending'
      };
     const mockUpdatedTransactionData = {
-        sender: ObjectId("65e32d17aead2dbbab5eda6e"),
-        receiver: ObjectId("65e32c570299bb2dc95b9e62"),
+        sender: "65e32d17aead2dbbab5eda6e",
+        receiver: "65e32c570299bb2dc95b9e62",
         amount: 100,
         expenseType: 'Groceries',
         status: 'pending',
@@ -40,12 +40,12 @@ describe('Transaction Service', () => {
      };
     
     mockTransactionUtilService.validateAndGetUpdatedData.mockReturnValue(mockUpdatedTransactionData);
-    mockTransactionRepository.addTransaction.mockResolvedValue(mockUpdatedTransactionData);
+    mockTransactionRepository.addTransactionRecord.mockResolvedValue(mockUpdatedTransactionData);
 
     const result = await transactionService.addTransaction(mockTransactionData);
 
     expect(mockTransactionUtilService.validateAndGetUpdatedData).toHaveBeenCalledWith(mockTransactionData);
-    expect(mockTransactionRepository.addTransaction).toHaveBeenCalledWith(mockUpdatedTransactionData);
+    expect(mockTransactionRepository.addTransactionRecord).toHaveBeenCalledWith(mockUpdatedTransactionData);
     expect(result).toEqual(mockUpdatedTransactionData);
   });
 
@@ -59,7 +59,7 @@ describe('Transaction Service', () => {
      };
 
     mockTransactionUtilService.validateAndGetUpdatedData.mockImplementation(() => {
-      throw new Error('Invalid Data provided');
+      throw new Error('Unable to add transaction. Invalid Data provided');
     });
 
     await expect(transactionService.addTransaction(mockTransactionData)).rejects.toThrowError('Unable to add transaction. Invalid Data provided');
@@ -110,7 +110,7 @@ describe('Transaction Service', () => {
     mockTransactionUtilService.validateAndGetUpdatedData.mockReturnValue(mockUpdatedTransactionData);
     mockTransactionRepository.updateTransaction.mockResolvedValue(mockUpdatedTransactionData);
 
-    const result = await transactionService.updateUserDetails(mockId, mockUpdatedData);
+    const result = await transactionService.updateTransactionDetails(mockId, mockUpdatedData);
 
     expect(mockTransactionUtilService.validateAndGetUpdatedData).toHaveBeenCalledWith(mockUpdatedData);
     expect(mockTransactionRepository.updateTransaction).toHaveBeenCalledWith(mockId, mockUpdatedTransactionData);
@@ -124,7 +124,7 @@ describe('Transaction Service', () => {
     };
 
     mockTransactionUtilService.validateAndGetUpdatedData.mockImplementation(() => {
-      throw new Error('Invalid Data provided');
+      throw new Error('Unable to update transaction. Invalid Data provided');
     });
 
     await expect(transactionService.updateTransactionDetails(mockId, mockUpdatedData)).rejects.toThrowError('Unable to update transaction. Invalid Data provided');
