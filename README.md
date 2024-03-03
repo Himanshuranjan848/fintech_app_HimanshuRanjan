@@ -17,25 +17,25 @@ To run tests for the Transaction module:
 
 
 # User Module
-/register - Create a new user (normal or admin).
-/getUsers - Retrieve users based on a specified query.
-/:email/updateUserDetails - Update user details or perform a soft delete.
+/register - Create a new user (normal or admin).  \n
+/getUsers - Retrieve users based on a specified query. \n
+/:email/updateUserDetails - Update user details or perform a soft delete. \n
 /login - Log in a user using their email and password. The endpoint returns a token, which serves as the authentication token. Include the token and email in the header for authentication.
 
 # Transaction Module
-/createTransaction - Create a new transaction.
-/getUserTransaction - Retrieve user transactions based on a specified query type (transactionType, spendType, or others).
-/updateTransactionDetails/:id - Update transaction details or perform a soft delete.
+/createTransaction - Create a new transaction. \n
+/getUserTransaction - Retrieve user transactions based on a specified query type (transactionType, spendType, or others).  \n
+/updateTransactionDetails/:id - Update transaction details or perform a soft delete.  \n
 /deleteTransaction/:id - Soft delete a transaction by its ID.
 
 # .env Values
 Configure the following environment variables in your .env file:
 
-PORT - Set to 3000.
-DBHOST - MongoDB connection string, e.g., mongodb://127.0.0.1:27017/fintech.
-JWTExpiry - JWT expiration time (in seconds), e.g., 43200.
-AUTHSECRET - Secret key for authentication.
-SALTROUND - Set to 10 for password hashing.
-TRANSACTION_TYPE_SPEND - Specify the transaction type for spending, e.g., spend.
-TRANSACTION_TYPE_EARNING - Specify the transaction type for earning, e.g., earning.
-CREATE_OPERATION - Specify the operation type for creating, e.g., create.
+PORT - Set to 3000.  \n  
+DBHOST - MongoDB connection string, e.g., mongodb://127.0.0.1:27017/fintech. \n 
+JWTExpiry - JWT expiration time (in seconds), e.g., 43200.  \n
+AUTHSECRET - Secret key for authentication. \n
+SALTROUND - Set to 10 for password hashing. \n
+TRANSACTION_TYPE_SPEND - Specify the transaction type for spending, e.g., spend. \n
+TRANSACTION_TYPE_EARNING - Specify the transaction type for earning, e.g., earning. \n
+CREATE_OPERATION - Specify the operation type for creating, e.g., create. \n
