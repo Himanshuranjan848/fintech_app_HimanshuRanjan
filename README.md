@@ -1,4 +1,5 @@
-# Fintech App - Himanshu Ranjan
+# Fintech App
+#### Himanshu Ranjan
 
 ## Overview
 
@@ -7,33 +8,38 @@ This fintech app comprises two main modules: User and Transaction. MongoDB is us
 ## Running the App
 To start the app, use the following command:
 
-#Run : 
+### Run : 
+```
 npm start
+```
 
-To run tests :  
+### To run tests : 
+```
 npm run test
+```
 
+## User Module
+1. **/register** - Create a new user (normal or admin).
+2. **/getUsers** - Retrieve users based on a specified query.
+3. **/:email/updateUserDetails** - Update user details or perform a soft delete.
+4. **/login** - Log in a user using their email and password. The endpoint returns a token, which serves as the authentication token. Include the token and email in the header for authentication.
 
-# User Module
-/register - Create a new user (normal or admin).  ##
-/getUsers - Retrieve users based on a specified query. ##
-/:email/updateUserDetails - Update user details or perform a soft delete. ##
-/login - Log in a user using their email and password. The endpoint returns a token, which serves as the authentication token. Include the token and email in the header for authentication.
+## Transaction Module
+1. **/createTransaction** - Create a new transaction. ##
+2. **/getUserTransaction** - Retrieve user transactions based on a specified query type (transactionType, spendType, or others).  ##
+3. **/updateTransactionDetails/:id** - Update transaction details or perform a soft delete.  ##
+4. **/deleteTransaction/:id** - Soft delete a transaction by its ID.
 
-# Transaction Module
-/createTransaction - Create a new transaction. ##
-/getUserTransaction - Retrieve user transactions based on a specified query type (transactionType, spendType, or others).  ##
-/updateTransactionDetails/:id - Update transaction details or perform a soft delete.  ##
-/deleteTransaction/:id - Soft delete a transaction by its ID.
+## .env Values
+Configure the following environment variables in your `.env` file:
 
-# .env Values
-Configure the following environment variables in your .env file:
+- PORT - Set to 3000.
+-  DBHOST - MongoDB connection string, e.g., mongodb://127.0.0.1:27017/fintech.
+- JWTExpiry - JWT expiration time (in seconds), e.g., 43200.
+-  AUTHSECRET - Secret key for authentication. 
+- SALTROUND - Set to 10 for password hashing.    
+- TRANSACTION_TYPE_SPEND - Specify the transaction type for spending, e.g., spend. 
+- TRANSACTION_TYPE_EARNING - Specify the transaction type for earning, e.g., earning. 
+- CREATE_OPERATION - Specify the operation type for creating, e.g., create.
 
-PORT - Set to 3000. ##
-DBHOST - MongoDB connection string, e.g., mongodb://127.0.0.1:27017/fintech. ##
-JWTExpiry - JWT expiration time (in seconds), e.g., 43200.  ##
-AUTHSECRET - Secret key for authentication. ##
-SALTROUND - Set to 10 for password hashing.  ##  
-TRANSACTION_TYPE_SPEND - Specify the transaction type for spending, e.g., spend. ##
-TRANSACTION_TYPE_EARNING - Specify the transaction type for earning, e.g., earning. ## 
-CREATE_OPERATION - Specify the operation type for creating, e.g., create. ## 
+---
