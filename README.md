@@ -8,7 +8,7 @@ Tu run test for transaction - npm transactionTest
 
 User Module
 
-  1-> /register - create new user ( normal or admin )
+  1-> /register - create new user ( normal or admin ) 
   2-> /getUsers - getUsers based on query 
   3-> /:email/updateUserDetails - used to update user . Can also be used to soft delete users.
   4-> /login - login user based on email and password . It returns a token which can be used as auth token. The auth token along with email in header is used for authentication.
