@@ -31,7 +31,7 @@ To run tests for the Transaction module:
 # .env Values
 Configure the following environment variables in your .env file:
 
-PORT - Set to 3000.  \n  
+PORT - Set to 3000.  \ 
 DBHOST - MongoDB connection string, e.g., mongodb://127.0.0.1:27017/fintech. \n 
 JWTExpiry - JWT expiration time (in seconds), e.g., 43200.  \n
 AUTHSECRET - Secret key for authentication. \n
